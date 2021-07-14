@@ -5,7 +5,6 @@ import com.wangyousong.practice.saki.domain.Vocabulary;
 import com.wangyousong.practice.saki.domain.VocabularyRepository;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
-import org.springframework.context.annotation.Primary;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Component;
@@ -15,8 +14,7 @@ import java.time.Instant;
 import java.util.Optional;
 
 @Slf4j
-@Primary
-@Component
+@Component("postgresVocabularyRepositoryImpl")
 public class VocabularyRepositoryImpl implements VocabularyRepository {
 
     @Resource

@@ -12,8 +12,9 @@ import javax.annotation.Resource;
 import java.time.Instant;
 import java.util.Optional;
 
+
 @Slf4j
-@Component(value = "redisVocabularyRepositoryImpl")
+@Component("redisVocabularyRepositoryImpl")
 public class VocabularyRepositoryImpl implements VocabularyRepository {
 
     @Resource
