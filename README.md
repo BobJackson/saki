@@ -5,7 +5,9 @@
 
 ## Dao层尝试使用了Redis和Postgresql两种实现，可以切换
 
-## 待优化的地方：通过配置实现无缝切换（现在切换需要修改代码）
+## 通过配置实现无缝切换
+修改application.properties 文件vocabularyRepositoryImpl的值
+
 
 ## 反思
 尽管代码是简单，不复杂的，但是我看到了设计中的一些渐进性，逐步完善的过程。当然也与经验有关，比如一开始就可以想到createdTime和updatedTime，
