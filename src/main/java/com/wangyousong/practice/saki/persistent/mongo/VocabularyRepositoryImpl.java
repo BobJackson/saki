@@ -1,4 +1,4 @@
-package com.wangyousong.practice.saki.persistent.postgres;
+package com.wangyousong.practice.saki.persistent.mongo;
 
 import com.wangyousong.practice.saki.common.UpdatedTimeHelper;
 import com.wangyousong.practice.saki.domain.Vocabulary;
@@ -12,7 +12,7 @@ import javax.annotation.Resource;
 import java.time.Instant;
 import java.util.Optional;
 
-@Component("postgresVocabularyRepositoryImpl")
+@Component("mongoVocabularyRepositoryImpl")
 public class VocabularyRepositoryImpl implements VocabularyRepository {
 
     @Resource
@@ -20,21 +20,21 @@ public class VocabularyRepositoryImpl implements VocabularyRepository {
 
     @Override
     public Vocabulary save(Vocabulary vocabulary, boolean isCreated) {
-        VocabularyEntity vocabularyEntity = new VocabularyEntity(vocabulary.getKey().to(),
-                vocabulary.getChinese(), vocabulary.getChineseRemarks(), vocabulary.getEnglish(),
-                vocabulary.getEnglishRemarks(), Instant.now(), UpdatedTimeHelper.populate(isCreated));
+        VocabularyEntity vocabularyEntity = new VocabularyEntity(vocabulary.getKey().to(), vocabulary.getChinese(),
+                vocabulary.getChineseRemarks(), vocabulary.getEnglish(), vocabulary.getEnglishRemarks(), Instant.now(),
+                UpdatedTimeHelper.populate(isCreated));
         VocabularyEntity entity = repository.save(vocabularyEntity);
         return entity.toVocabulary();
     }
 
     @Override
-    public boolean exists(String key) {
-        return repository.existsById(key);
+    public void delete(String key) {
+        repository.deleteById(key);
     }
 
     @Override
-    public void delete(String key) {
-        repository.deleteById(key);
+    public boolean exists(String key) {
+        return repository.existsById(key);
     }
 
     @Override

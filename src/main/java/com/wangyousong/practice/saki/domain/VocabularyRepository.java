@@ -7,7 +7,7 @@ import java.util.Optional;
 
 public interface VocabularyRepository {
 
-    Vocabulary save(Vocabulary vocabulary, boolean isUpdate);
+    Vocabulary save(Vocabulary vocabulary, boolean isCreated);
 
     void delete(String key);
 

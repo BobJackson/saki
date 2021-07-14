@@ -3,10 +3,16 @@
 ## 架构
 使用 整洁架构
 
-## Dao层尝试使用了Redis和Postgresql两种实现，可以切换
+## Dao层尝试使用了Redis，Postgresql,MongoDb三种实现，可以切换
+````
+1.redis和mongodb 采用默认springboot的默认配置;
+2.现在是dev环境，对于postgresql 可以使用spring.jpa.hibernate.ddl-auto=update，但是在真实的项目中会使用flyaway实现版本化；
+````
+
+
 
 ## 通过配置实现无缝切换
-修改application.properties 文件vocabularyRepositoryImpl的值
+修改application.properties 文件vocabularyRepositoryImpl的值；
 
 
 ## 反思

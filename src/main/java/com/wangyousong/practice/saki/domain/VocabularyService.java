@@ -67,8 +67,8 @@ public class VocabularyService {
     }
 
     public PageDto<VocabularyDto> list(String keyword, PageRequest pageRequest) {
-        pageRequest.withSort(Sort.by(Sort.Direction.DESC, "createdTime"));
-        Page<Vocabulary> vocabularies = vocabularyRepository.findByKeyword(keyword, pageRequest);
+        PageRequest pageable = pageRequest.withSort(Sort.by(Sort.Direction.DESC, "createdTime"));
+        Page<Vocabulary> vocabularies = vocabularyRepository.findByKeyword(keyword, pageable);
         if (vocabularies.isEmpty()) {
             return new PageDto<VocabularyDto>().emptyPage();
         }
